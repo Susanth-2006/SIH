@@ -1,4 +1,5 @@
-export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const rawApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+export const API_URL = rawApiUrl.startsWith('http') ? rawApiUrl : `https://${rawApiUrl}`
 
 
 const TOKEN_KEY = 'uip_auth_token'

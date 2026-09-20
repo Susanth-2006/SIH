@@ -18,7 +18,7 @@ services:
         fromService:
           type: web
           name: urban-intelligence-ml-service
-          property: url
+          property: host
 
   # 2. ML Detection Service
   - type: web
@@ -36,7 +36,6 @@ services:
   - type: web
     name: urban-intelligence-frontend
     env: static
-    region: singapore
     buildCommand: "cd frontend && chmod +x node_modules/.bin/* 2>/dev/null || true && npm install && npm run build"
     staticPublishPath: "./frontend/dist"
     envVars:
@@ -44,7 +43,7 @@ services:
         fromService:
           type: web
           name: urban-intelligence-backend
-          property: url
+          property: host
     routes:
       - type: rewrite
         source: "/*"
