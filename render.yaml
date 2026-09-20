@@ -36,8 +36,9 @@ services:
   - type: web
     name: urban-intelligence-frontend
     env: static
-    buildCommand: "cd frontend && npm install && chmod +x node_modules/.bin/* 2>/dev/null || true && npm run build"
-    staticPublishPath: "./frontend/dist"
+    rootDir: frontend
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: "./dist"
     envVars:
       - key: VITE_API_URL
         fromService:
